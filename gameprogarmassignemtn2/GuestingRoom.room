@@ -1,0 +1,6 @@
+GuestingRoom
+a room for guests
+Enter,Exit
+HallWay,Closet
+Door,Desk,Bed,Drawer,Chair,Tv
+None

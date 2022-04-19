@@ -1,0 +1,6 @@
+Elevator
+up elevator
+Enter, Open, Close
+Lobby
+CONTAINED_FURNITURE_NAME_1, CONTAINED_FURNITURE_NAME_2… etc. or “None”
+CONTAINED_ITEM_NAME_1, CONTAINED_ITEM_NAME_2… etc.
