@@ -8,12 +8,12 @@ class Item :
 private:
   //  vector<Item*> m_items;
     char ch;
-
+  
 
 
 public: 
 
-
+    void loadFile(string fileName);
 
     Item() {
 

@@ -1,5 +1,11 @@
 #pragma once
-class Safe
+#include "Furniture.h"
+
+class Safe :
+    public Furniture
 {
+
+
+
 };
 

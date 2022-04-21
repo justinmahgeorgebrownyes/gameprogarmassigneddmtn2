@@ -31,7 +31,6 @@ string SomeCommands::getVerb(string line)
 
 string SomeCommands::getNoun(string line)
 {
-	//fix substr find use correctly. google get second word in a string with spaces c++ 
 	auto second_token = line.substr(1, line.find(' '));
 	return string(second_token);
 }

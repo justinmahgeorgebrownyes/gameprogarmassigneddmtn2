@@ -12,15 +12,21 @@
 #include "Closet.h"
 #include "SomeDialogue.h"
 #include "SomeCommands.h"
+#include "Safe.h"
+#include "MasterKey.h"
 using namespace std;
 int main()
 {
     vector<Room*> roomsContainer;
+    vector<Item*> itemsContainer;
+    vector<Furniture*> furnitureContainer;
 
     map <string, Room*> roomMap;
+    map <string, Item*> itemMap;
+    map <string, Furniture*> furnitureMap;
 
     
-    
+    Room* currentRoom ;
 
 
     Elevator *pElevator = new Elevator();
@@ -56,23 +62,41 @@ int main()
         roomsContainer[i]->fillConnectingRooms(roomMap);
         
     }
+
+    Safe* pSafe = new Safe();
+    pSafe ->loadFile("Safe.furniture");
+    furnitureContainer.push_back((Furniture*)pSafe);
+    furnitureMap[pSafe->getName()] = (Furniture*)pSafe;
+    //to keep doing this for the other furnitures
+
+
+
+    MasterKey* pMasterKey = new MasterKey();
+    pMasterKey->loadFile("MasterKey.item");
+    itemsContainer.push_back((Item*)pMasterKey);
+    itemMap[pMasterKey->getName()] = (Item*)pMasterKey;
+    //to keep doing this for the other items
+
+
     //craete all furniture objectsusing .furniture files
     //make sure to create furniture map
-   /* for (size_t i = 0; i < roomsContainer.size(); i++)
+    for (size_t i = 0; i < roomsContainer.size(); i++)
     {
-    implement fillcontain furniture in room class
+        //
+   // implement fillcontain furniture in room class
         roomsContainer[i]->fillContainedFurniture(furnitureMap);
         
-    }*/ 
-    
+    } 
+
     //craete all item objectsusing .item files
-    //make sure to create item map
-   /* for (size_t i = 0; i < roomsContainer.size(); i++)
+//make sure to create item map
+    for (size_t i = 0; i < roomsContainer.size(); i++)
     {
-    implement fillcontain items in room class
+
+   // implement fillcontain items in room class
         roomsContainer[i]->fillContainedItems(itemMap);
         
-    }*/
+    }
 
 
     SomeCommands commandSystem;
@@ -84,9 +108,23 @@ int main()
     }
 
 
-    dialogueSystem.start();
+    
 
-    Item hammer ;
+
+    currentRoom = pLobby;
+    currentRoom->enter();
+
+    bool playerWin = false;
+
+    bool playerLose = false;
+
+    while (playerWin == false && playerLose == false)
+    {
+        commandSystem.takeAndExecuteCommand(currentRoom);
+    }
+
+
+    //Item hammer ;
 
 
     std::cout << "Hello World!\n";

@@ -102,3 +102,45 @@ void Room::fillConnectingRooms(map<string, Room*>&roomMap)
 
 
 }
+
+void Room::fillContainedFurniture(map<string, Furniture*>& furnitureMap)
+{
+    for (int i = 0; i < m_containedFurnituredSTrig.size(); i++)
+    {
+
+        auto pFurniture = furnitureMap.find(m_containedFurnituredSTrig[i]);
+
+        if (pFurniture != furnitureMap.end())
+        {
+            m_furniture.push_back(furnitureMap[m_containedFurnituredSTrig[i]]);
+        }
+
+
+    }
+}
+
+void Room::fillContainedItems(map<string, Item*>& itemMap)
+{
+
+    for (int i = 0; i < m_containedItemNameSTring.size(); i++)
+    {
+
+     //   m_items.push_back(itemMap[m_containedItemNameSTring[i]]);
+
+        auto pItem = itemMap.find(m_containedItemNameSTring[i]);
+
+        if (pItem != itemMap.end())
+        {
+            m_items.push_back(itemMap[m_containedItemNameSTring[i]]);
+        }
+    }
+
+}
+
+
+
+void Room::enter()
+{
+    cout << m_description << endl;
+
+}

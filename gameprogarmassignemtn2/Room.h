@@ -7,6 +7,7 @@
 #include "Item.h"
 #include <map>
 #include "Furniture.h"
+
 using namespace std;
 class Room :
     public Entity
@@ -31,14 +32,14 @@ private:
     string m_detailedDescription;
     vector<Room*> m_connectedRooms;
     vector<Furniture*> m_furniture;
-
+    vector<Item*> m_items;
 
 
     vector<string> m_connectingRoomString;
     vector<string> m_containedFurnituredSTrig;
     vector<string> m_containedItemNameSTring;
 
-    vector<Item*> m_items;
+    
 
 
     string m_contentDescription;
@@ -48,7 +49,7 @@ private:
     string m_containedItemName;
 
 public:
-
+    virtual void enter();
     Room(){}
     
 
@@ -62,7 +63,8 @@ public:
 
     void fillConnectingRooms(map <string, Room*> &roomMap);
 
-
+    void fillContainedFurniture(map <string, Furniture*>& furnitureMap);
+    void fillContainedItems(map <string, Item*>& itemMap);
 
     void setconnectedRooms(vector<Room*> connectedRooms) {
         m_connectedRooms = connectedRooms;
