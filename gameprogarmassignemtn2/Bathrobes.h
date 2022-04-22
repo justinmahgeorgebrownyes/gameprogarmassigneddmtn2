@@ -1,5 +1,7 @@
 #pragma once
-class Bathrobes
+#include "Furniture.h"
+class Bathrobes :
+    public Furniture
 {
 };
 

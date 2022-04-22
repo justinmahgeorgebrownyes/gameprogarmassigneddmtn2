@@ -139,12 +139,12 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="AirDuctCover.cpp" />
     <ClCompile Include="Bathrobes.cpp" />
     <ClCompile Include="Bathroom.cpp" />
     <ClCompile Include="ButtonPanel.cpp" />
     <ClCompile Include="Closet.cpp" />
     <ClCompile Include="Computer.cpp" />
+    <ClCompile Include="Desk.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Dresser.cpp" />
     <ClCompile Include="Elevator.cpp" />
@@ -175,6 +175,7 @@
     <ClInclude Include="ButtonPanel.h" />
     <ClInclude Include="Closet.h" />
     <ClInclude Include="Computer.h" />
+    <ClInclude Include="Desk.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Dresser.h" />
     <ClInclude Include="Elevator.h" />

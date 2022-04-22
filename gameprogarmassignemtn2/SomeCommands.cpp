@@ -5,12 +5,26 @@
 #include <iostream>     // std::cout
 #include <algorithm>    // std::for_each
 #include <vector> 
+#include <sstream>
+#include <string>
 
 Item* SomeCommands::takeAndExecuteCommand(Room* currentRoom)
 {
-	string command;
-	cout << "command please";
-	cin >> command;
+	
+	cout << "command please" << endl;
+	std::getline(std::cin, command);
+	//cin >> command;
+
+	//string space_delimiter = " ";
+	//
+
+	//size_t pos = 0;
+	//while ((pos = command.find(space_delimiter)) != string::npos) {
+	//	inputt.push_back(command.substr(0, pos));
+	//	command.erase(0, pos + space_delimiter.length());
+	//}
+
+
 	bool commandValid = checkCommand(command, currentRoom);
 
 	if (!commandValid)
@@ -27,13 +41,19 @@ string SomeCommands::getVerb(string line)
 {
 	auto first_token = line.substr(0, line.find(' '));
 	return string(first_token);
+
+
 }
 
 string SomeCommands::getNoun(string line)
 {
-	//fix substr find use correctly. google get second word in a string with spaces c++ 
-	auto second_token = line.substr(1, line.find(' '));
-	return string(second_token);
+	int pos = line.find(" ");
+	string sub = line.substr(pos + 1);
+
+string second_token = sub;
+	return sub;
+
+
 }
 
 
@@ -44,7 +64,8 @@ bool SomeCommands::checkCommand(string linee, Room* currentRoom)
 	//std::for_each(linee.begin(), linee.end(), [](char& c) {
 	//	c = ::tolower(c);
 	//	});
-	string verbz = getVerb(linee);
+
+	string verbz = getVerb(command);
 	string nounz = getNoun(linee);
 
 

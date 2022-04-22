@@ -14,6 +14,14 @@
 #include "SomeCommands.h"
 #include "Safe.h"
 #include "MasterKey.h"
+#include "Desk.h"
+#include "ButtonPanel.h"
+#include "Dresser.h"
+#include "Desk.h"
+#include "FilingCabinet.h"
+#include "Bathrobes.h"
+#include "Door.h"
+#include "StickyNote.h"
 using namespace std;
 int main()
 {
@@ -69,12 +77,59 @@ int main()
     furnitureMap[pSafe->getName()] = (Furniture*)pSafe;
     //to keep doing this for the other furnitures
 
+    Desk* pDesk = new Desk();
+    pSafe->loadFile("Desk.furniture");
+    furnitureContainer.push_back((Furniture*)pDesk);
+    furnitureMap[pDesk->getName()] = (Furniture*)pDesk;
+    //to keep doing this for the other furnitures   
+    
+    
+    ButtonPanel* pButtonPanel = new ButtonPanel();
+    pSafe->loadFile("ButtonPanel.furniture");
+    furnitureContainer.push_back((Furniture*)pButtonPanel);
+    furnitureMap[pButtonPanel->getName()] = (Furniture*)pButtonPanel;
+    //to keep doing this for the other furnitures
+    
+    
+    Dresser* pDresser = new Dresser();
+    pSafe->loadFile("Desk.furniture");
+    furnitureContainer.push_back((Furniture*)pDresser);
+    furnitureMap[pDresser->getName()] = (Furniture*)pDresser;
+    //to keep doing this for the other furnitures    
+    
+    FilingCabinet* pFilingCabinet = new FilingCabinet();
+    pSafe->loadFile("Desk.furniture");
+    furnitureContainer.push_back((Furniture*)pFilingCabinet);
+    furnitureMap[pFilingCabinet->getName()] = (Furniture*)pFilingCabinet;
+    //to keep doing this for the other furnitures  
+    
+    
+    Bathrobes* pBathrobes = new Bathrobes();
+    pSafe->loadFile("Desk.furniture");
+    furnitureContainer.push_back((Furniture*)pBathrobes);
+    furnitureMap[pBathrobes->getName()] = (Furniture*)pBathrobes;
+    //to keep doing this for the other furnitures
+        
+    
+    Door* pDoor = new Door();
+    pSafe->loadFile("Desk.furniture");
+    furnitureContainer.push_back((Furniture*)pDoor);
+    furnitureMap[pDoor->getName()] = (Furniture*)pDoor;
+    //to keep doing this for the other furnitures
+
+
 
 
     MasterKey* pMasterKey = new MasterKey();
     pMasterKey->loadFile("MasterKey.item");
     itemsContainer.push_back((Item*)pMasterKey);
     itemMap[pMasterKey->getName()] = (Item*)pMasterKey;
+    //to keep doing this for the other items
+
+    StickyNote* pStickyNote = new StickyNote();
+    pStickyNote->loadFile("StickyNote.item");
+    itemsContainer.push_back((Item*)pStickyNote);
+    itemMap[pStickyNote->getName()] = (Item*)pStickyNote;
     //to keep doing this for the other items
 
 

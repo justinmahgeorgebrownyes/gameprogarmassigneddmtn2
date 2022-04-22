@@ -1,6 +1,6 @@
 #pragma once
 #include "Furniture.h"
-class Dresser: 
+class Desk :
     public Furniture
 {
 };

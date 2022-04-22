@@ -90,9 +90,6 @@
     <ClCompile Include="Safe.cpp">
       <Filter>Source Files\Furnitures</Filter>
     </ClCompile>
-    <ClCompile Include="Dresser.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Bathroom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -102,14 +99,17 @@
     <ClCompile Include="Computer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AirDuctCover.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Bathrobes.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="IronBoard.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Desk.cpp">
+      <Filter>Source Files\Furnitures</Filter>
+    </ClCompile>
+    <ClCompile Include="Dresser.cpp">
+      <Filter>Source Files\Furnitures</Filter>
+    </ClCompile>
+    <ClCompile Include="Bathrobes.cpp">
+      <Filter>Source Files\Furnitures</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +192,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="IronBoard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Desk.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

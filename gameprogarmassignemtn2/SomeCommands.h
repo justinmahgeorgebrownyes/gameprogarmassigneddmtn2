@@ -8,6 +8,8 @@ class SomeCommands
 
 
 public:
+	vector<string> inputt{};
+	string command;
 	Item* takeAndExecuteCommand(Room* currentRoom);
 	string getVerb(string line);
 	string getNoun(string line);
