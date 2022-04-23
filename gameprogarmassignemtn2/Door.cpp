@@ -4,30 +4,40 @@
 using namespace std;
 void Door::use()
 {
-
+	
 
 
 
 
 	if (m_locked) {
-		cout << "locked";
+		cout << "door is locked";
 	}
 	else
-		cout << "unlocked";
+		cout << "door is unlocked";
 
 
 }
 
+void Door::enter() {
+
+	if (m_locked) {
+		cout << "door is locked";
+	}
+	else
+		cout << "door is unlocked";
+
+}
 
 
 void Door::unlock() {
 
 	m_locked = false;
-
+	cout << "door open";
 
 
 }
 
 void Door::lock() {
 	m_locked = true;
+	cout << "door close";
 }

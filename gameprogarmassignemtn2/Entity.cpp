@@ -39,3 +39,7 @@ void Entity::unlock()
 void Entity::lock()
 {
 }
+
+void Entity::smash()
+{
+}

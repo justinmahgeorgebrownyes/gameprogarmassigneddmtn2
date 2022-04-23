@@ -32,6 +32,9 @@ public:
 	virtual void lock() ;
 
 
+	virtual void smash();
+
+
 	void setVerbs(vector<string> s) {
 		m_verbssString = s;
 	}

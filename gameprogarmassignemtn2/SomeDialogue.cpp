@@ -21,24 +21,31 @@ void SomeDialogue::start() {
 }
 
 
-//void SomeDialogue::enterLobby() {
-//
-//	
-//
-//}
-//
-//void SomeDialogue::enterElevator() {
-//
-//	cout << "going up. there is only 1 floor.";
-//
-//
-//}
-//
-//void SomeDialogue::enterCloset() {
-//
-//	system("Color 0A");
-//	cout << furniture;
-//
-//}
-//
-//void SomeDialogue::enter
+void SomeDialogue::enterLobby() {
+
+	
+
+}
+
+void SomeDialogue::enterElevator() {
+
+	cout << "going up. there is only 1 floor.";
+
+
+}
+
+
+void SomeDialogue::enterHallway() {
+
+}
+
+void SomeDialogue::enterCloset() {
+
+	
+
+}
+
+void SomeDialogue::enterGuestingRoom() {
+
+
+}

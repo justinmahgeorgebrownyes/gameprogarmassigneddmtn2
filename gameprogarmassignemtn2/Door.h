@@ -9,6 +9,7 @@ private:
 
 public:
     void use();
+    void enter();
     void unlock();
     void lock();
 

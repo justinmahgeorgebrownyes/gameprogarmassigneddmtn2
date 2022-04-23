@@ -22,6 +22,7 @@
 #include "Bathrobes.h"
 #include "Door.h"
 #include "StickyNote.h"
+#include "Player.h"
 using namespace std;
 int main()
 {
@@ -35,6 +36,12 @@ int main()
 
     
     Room* currentRoom ;
+    Item* currentItem = nullptr;
+
+    Player hiP();
+    //figure out how to use when access door 
+    //door check inventory or else fail2
+
 
 
     Elevator *pElevator = new Elevator();
@@ -78,41 +85,41 @@ int main()
     //to keep doing this for the other furnitures
 
     Desk* pDesk = new Desk();
-    pSafe->loadFile("Desk.furniture");
+    pDesk->loadFile("Desk.furniture");
     furnitureContainer.push_back((Furniture*)pDesk);
     furnitureMap[pDesk->getName()] = (Furniture*)pDesk;
     //to keep doing this for the other furnitures   
     
     
     ButtonPanel* pButtonPanel = new ButtonPanel();
-    pSafe->loadFile("ButtonPanel.furniture");
+    pButtonPanel->loadFile("ButtonPanel.furniture");
     furnitureContainer.push_back((Furniture*)pButtonPanel);
     furnitureMap[pButtonPanel->getName()] = (Furniture*)pButtonPanel;
     //to keep doing this for the other furnitures
     
     
     Dresser* pDresser = new Dresser();
-    pSafe->loadFile("Desk.furniture");
+    pDresser->loadFile("Dresser.furniture");
     furnitureContainer.push_back((Furniture*)pDresser);
     furnitureMap[pDresser->getName()] = (Furniture*)pDresser;
     //to keep doing this for the other furnitures    
     
     FilingCabinet* pFilingCabinet = new FilingCabinet();
-    pSafe->loadFile("Desk.furniture");
+    pFilingCabinet->loadFile("FilingCabinet.furniture");
     furnitureContainer.push_back((Furniture*)pFilingCabinet);
     furnitureMap[pFilingCabinet->getName()] = (Furniture*)pFilingCabinet;
     //to keep doing this for the other furnitures  
     
     
     Bathrobes* pBathrobes = new Bathrobes();
-    pSafe->loadFile("Desk.furniture");
+    pBathrobes->loadFile("Bathrobes.furniture");
     furnitureContainer.push_back((Furniture*)pBathrobes);
     furnitureMap[pBathrobes->getName()] = (Furniture*)pBathrobes;
     //to keep doing this for the other furnitures
         
     
     Door* pDoor = new Door();
-    pSafe->loadFile("Desk.furniture");
+    pDoor->loadFile("Door.furniture");
     furnitureContainer.push_back((Furniture*)pDoor);
     furnitureMap[pDoor->getName()] = (Furniture*)pDoor;
     //to keep doing this for the other furnitures
@@ -157,10 +164,10 @@ int main()
     SomeCommands commandSystem;
     SomeDialogue dialogueSystem;
 
-    for (size_t i = 0; i < roomsContainer.size(); i++)
+   /* for (size_t i = 0; i < roomsContainer.size(); i++)
     {
         commandSystem.listCommands(roomsContainer[i]);
-    }
+    }*/
 
 
     
@@ -175,14 +182,31 @@ int main()
 
     while (playerWin == false && playerLose == false)
     {
-        commandSystem.takeAndExecuteCommand(currentRoom);
+        cout << "curent room is " << currentRoom->getName() << endl;
+
+
+        commandSystem.takeAndExecuteCommand(currentRoom, currentItem);
+
+
+        if (currentItem != nullptr)
+        {
+            cout << "curent item is " << currentItem->getName() << endl;
+
+        }
+
+
+        //check the handout and see if the player obeject should also contain currentRoom memeber and 
+        //if so update the players current room with the one that is here
+        
+ //player object inventory which will be a stack of items* take currentItem and push onto the player object invetnroy
+        //after push set currentItem to nullptr again
+
+
+
     }
 
 
-    //Item hammer ;
 
-
-    std::cout << "Hello World!\n";
 }
 
 

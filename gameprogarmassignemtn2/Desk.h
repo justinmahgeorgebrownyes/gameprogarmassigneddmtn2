@@ -3,5 +3,9 @@
 class Desk :
     public Furniture
 {
+
+
+public:
+    virtual void smash();
 };
 

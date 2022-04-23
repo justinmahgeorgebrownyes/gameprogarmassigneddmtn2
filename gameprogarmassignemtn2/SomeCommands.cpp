@@ -7,10 +7,21 @@
 #include <vector> 
 #include <sstream>
 #include <string>
+#include <windows.h>
+#include "Player.h"
+#include "DynamicStack.h"
+#include <stdlib.h>
+#include "Door.h"
 
-Item* SomeCommands::takeAndExecuteCommand(Room* currentRoom)
+
+void SomeCommands::takeAndExecuteCommand(Room* &currentRoom, Item* &currentItem)
 {
+	cout << endl;
+	cout << "list of available commands" << endl;
+	listCommands(currentRoom);
+
 	
+
 	cout << "command please" << endl;
 	std::getline(std::cin, command);
 	//cin >> command;
@@ -25,16 +36,16 @@ Item* SomeCommands::takeAndExecuteCommand(Room* currentRoom)
 	//}
 
 
-	bool commandValid = checkCommand(command, currentRoom);
+	bool commandValid = checkCommand(command, currentRoom, currentItem);
 
 	if (!commandValid)
 	{
 		cout << "invalid command" << endl;
-		return nullptr;
+		return ;
 	}
 
 
-	return nullptr;
+	return ;
 }
 
 string SomeCommands::getVerb(string line)
@@ -58,7 +69,7 @@ string second_token = sub;
 
 
 
-bool SomeCommands::checkCommand(string linee, Room* currentRoom)
+bool SomeCommands::checkCommand(string linee, Room* &currentRoom, Item* &currentItem)
 {
 
 	//std::for_each(linee.begin(), linee.end(), [](char& c) {
@@ -67,11 +78,12 @@ bool SomeCommands::checkCommand(string linee, Room* currentRoom)
 
 	string verbz = getVerb(command);
 	string nounz = getNoun(linee);
-
+	Door hid;
+	
 
 	for (size_t i = 0; i < currentRoom->getconnectedRooms().size(); i++)
 	{
-		vector <Room*> hiRoom =  currentRoom->getconnectedRooms();
+		vector <Room*> hiRoom = currentRoom->getconnectedRooms();
 
 		if (nounz == hiRoom[i]->getName()) {
 
@@ -81,6 +93,16 @@ bool SomeCommands::checkCommand(string linee, Room* currentRoom)
 				if (verbz == hiRoom[i]->getVerbs()[j])
 				{
 					cout << "good" << endl;
+
+					//
+					if (verbz == "Enter")
+					{
+						hiRoom[i]->enter();
+						currentRoom = hiRoom[i];
+
+					}
+				
+
 					return true;
 				}
 
@@ -88,9 +110,92 @@ bool SomeCommands::checkCommand(string linee, Room* currentRoom)
 			}
 
 
+		}
 
+	
+
+
+
+	}
+
+	vector <Furniture*> hiFurniture = currentRoom->getContainedFurniture();
+
+	
+	for (size_t i = 0; i < currentRoom->getContainedFurniture().size(); i++)
+	{
+		
+
+		if (nounz == hiFurniture[i]->getName()) {
+
+			for (size_t j = 0; j < hiFurniture[i]->getVerbs().size(); j++)
+			{
+
+				if (verbz == hiFurniture[i]->getVerbs()[j])
+				{
+					cout << "good" << endl;
+
+					//support all other verbs for aother possible furnitures
+					//makes sure all the fuctions exist for all the verbs that do support
+					//add support for all of the items
+					if (verbz == "Smash")
+					{
+						hiFurniture[i]->smash();
+					}
+					
+				
+				}
+
+
+			}
 		}
 	}
+
+
+	for (size_t i = 0; i < currentRoom->getContainedItem().size(); i++)
+	{
+		vector <Item*> hiItem = currentRoom->getContainedItem();
+
+		if (nounz == hiItem[i]->getName()) {
+
+			for (size_t j = 0; j < hiItem[i]->getVerbs().size(); j++)
+			{
+
+				if (verbz == hiItem[i]->getVerbs()[j])
+				{
+					cout << "good" << endl;
+
+					//support all other verbs for aother possible furnitures
+					//makes sure all the fuctions exist for all the verbs that do support
+					//add support for all of the items
+					if (verbz == "Take")
+					{
+						hiItem[i]->take();
+						currentItem = hiItem[i];
+						
+					}	
+					
+					if (verbz == "Use")
+					{
+					//	hiItem[i]->use();
+						currentItem->use();
+						if (verbz == "Unlock" && nounz == "Door" currentItem == )
+						{
+							hiFurniture[i]->unlock();
+						}
+						
+					}
+			
+
+					return true;
+				}
+
+
+			}
+		}
+	}
+
+
+
 	//also chekc furniture and items. 
 	return false;
 
@@ -108,7 +213,7 @@ bool SomeCommands::checkCommand(string linee, Room* currentRoom)
 
 void SomeCommands::listCommands(Room* currentRoom) {
 
-
+	
 
 	vector <Room*> connectedRooms= currentRoom->getconnectedRooms();
 		
@@ -117,13 +222,23 @@ void SomeCommands::listCommands(Room* currentRoom) {
 		string konnectedName = connectedRooms[i]->getName(); 
 		vector<string> konnectedRoomVerbss = connectedRooms[i]->getVerbs();
 
-
+		HANDLE hstdin = GetStdHandle(STD_INPUT_HANDLE);
+		HANDLE hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
 		for (int j = 0; j < konnectedRoomVerbss.size(); j++)
 		{
-			cout << konnectedRoomVerbss[j] << " " << konnectedName << endl;
+			SetConsoleTextAttribute(hstdout, 0x09);
+
+			cout << konnectedRoomVerbss[j] << " ";
+
+			SetConsoleTextAttribute(hstdout, 0x04);
+
+
+			cout << konnectedName << endl;
+			
+
 		}
 		
-
+		SetConsoleTextAttribute(hstdout, 0x0F);
 
 
 	}
@@ -134,14 +249,26 @@ void SomeCommands::listCommands(Room* currentRoom) {
 		string kontainedFurnitureName = containedFurniture[i]->getName();
 		vector<string> kontainedFurnitureVerb = containedFurniture[i]->getVerbs();
 
-
+		HANDLE hstdin = GetStdHandle(STD_INPUT_HANDLE);
+		HANDLE hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
 		for (int j = 0; j < kontainedFurnitureVerb.size(); j++)
 		{
-			cout << kontainedFurnitureVerb[j] << " " << kontainedFurnitureName << endl;
+			SetConsoleTextAttribute(hstdout, 0x09);
+
+			cout << kontainedFurnitureVerb[j] << " ";
+
+			SetConsoleTextAttribute(hstdout, 0x06);
+
+			cout << kontainedFurnitureName << endl;
+			
+
 		}
-
-
-
+	
+		SetConsoleTextAttribute(hstdout, 0x0F);
+			
+		/*	<< system("Color 0A") << system("Color 0F")*/
+		
+		//std::cout << "Press any key to quit.\n";
 
 	}
 
@@ -153,12 +280,25 @@ void SomeCommands::listCommands(Room* currentRoom) {
 		vector<string> kontainedItemVerb = containedItem[i]->getVerbs();
 
 
+		HANDLE hstdin = GetStdHandle(STD_INPUT_HANDLE);
+		HANDLE hstdout = GetStdHandle(STD_OUTPUT_HANDLE);
 		for (int j = 0; j < kontainedItemVerb.size(); j++)
 		{
-			cout << kontainedItemVerb[j] << " " << kontainedItemName << endl;
+			SetConsoleTextAttribute(hstdout, 0x09);
+
+
+			cout << kontainedItemVerb[j] << " ";
+
+			SetConsoleTextAttribute(hstdout, 0x0A);
+
+			cout << kontainedItemName << endl;
+			
+
+			
+
 		}
 
-
+		SetConsoleTextAttribute(hstdout, 0x0F);
 
 
 	}

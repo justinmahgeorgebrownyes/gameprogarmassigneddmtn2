@@ -10,10 +10,10 @@ class SomeCommands
 public:
 	vector<string> inputt{};
 	string command;
-	Item* takeAndExecuteCommand(Room* currentRoom);
+	void takeAndExecuteCommand(Room* &currentRoom, Item* &currentItem);
 	string getVerb(string line);
 	string getNoun(string line);
-	bool checkCommand(string linee, Room* currentRoom);
+	bool checkCommand(string linee, Room* &currentRoom, Item*& currentItem);
 	void listCommands(Room* currentRoom);
 };
 
