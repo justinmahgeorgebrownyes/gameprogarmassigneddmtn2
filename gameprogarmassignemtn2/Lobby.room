@@ -1,6 +1,6 @@
 Lobby
-welcome to the main floor lobby. there is locked door behind the counter that requires a key. examine the lobby for more hints
+welcome to the main floor lobby. to win the game you must find the masterkey. examine the lobby for more hints
 Enter,Examine
-Elevator
-Door
+Elevator,Lobby
+Door,Lamp,FrontDesk,Couch
 StickyNote

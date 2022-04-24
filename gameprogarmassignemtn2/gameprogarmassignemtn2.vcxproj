@@ -144,12 +144,14 @@
     <ClCompile Include="ButtonPanel.cpp" />
     <ClCompile Include="Closet.cpp" />
     <ClCompile Include="Computer.cpp" />
+    <ClCompile Include="Couch.cpp" />
     <ClCompile Include="Desk.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="Dresser.cpp" />
     <ClCompile Include="Elevator.cpp" />
     <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FilingCabinet.cpp" />
+    <ClCompile Include="FrontDesk.cpp" />
     <ClCompile Include="Furniture.cpp" />
     <ClCompile Include="gameprogarmassignemtn2.cpp" />
     <ClCompile Include="GuestingRoom.cpp" />
@@ -158,6 +160,7 @@
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="DynamicQueue.cpp" />
     <ClCompile Include="DynamicStack.cpp" />
+    <ClCompile Include="Lamp.cpp" />
     <ClCompile Include="Lobby.cpp" />
     <ClCompile Include="MasterKey.cpp" />
     <ClCompile Include="Player.cpp" />
@@ -175,12 +178,14 @@
     <ClInclude Include="ButtonPanel.h" />
     <ClInclude Include="Closet.h" />
     <ClInclude Include="Computer.h" />
+    <ClInclude Include="Couch.h" />
     <ClInclude Include="Desk.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="Dresser.h" />
     <ClInclude Include="Elevator.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FilingCabinet.h" />
+    <ClInclude Include="FrontDesk.h" />
     <ClInclude Include="Furniture.h" />
     <ClInclude Include="GuestingRoom.h" />
     <ClInclude Include="HallWay.h" />
@@ -188,6 +193,7 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="DynamicQueue.h" />
     <ClInclude Include="DynamicStack.h" />
+    <ClInclude Include="Lamp.h" />
     <ClInclude Include="Lobby.h" />
     <ClInclude Include="MasterKey.h" />
     <ClInclude Include="Player.h" />

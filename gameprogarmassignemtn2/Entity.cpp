@@ -32,6 +32,10 @@ void Entity::use()
 {
 }
 
+void Entity::search()
+{
+}
+
 void Entity::unlock()
 {
 }

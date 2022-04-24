@@ -10,3 +10,4 @@ void Player::pushInventory(Item* item)
 	playerStack.push(item);
 
 }
+

@@ -4,7 +4,7 @@
 #include <vector>
 #include "DynamicStack.h"
 class Player :
-    public Entity
+    public Entity 
 {
 
 private:
@@ -21,6 +21,7 @@ public:
     //return inventory
     //update inventory
     void pushInventory(Item* item);
+
 
  /*   void popInventory() {
         return playerStack.pop();

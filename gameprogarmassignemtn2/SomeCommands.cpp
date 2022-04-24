@@ -71,6 +71,7 @@ string second_token = sub;
 
 bool SomeCommands::checkCommand(string linee, Room* &currentRoom, Item* &currentItem)
 {
+	
 
 	//std::for_each(linee.begin(), linee.end(), [](char& c) {
 	//	c = ::tolower(c);
@@ -79,6 +80,7 @@ bool SomeCommands::checkCommand(string linee, Room* &currentRoom, Item* &current
 	string verbz = getVerb(command);
 	string nounz = getNoun(linee);
 	Door hid;
+
 	
 
 	for (size_t i = 0; i < currentRoom->getconnectedRooms().size(); i++)
@@ -101,7 +103,12 @@ bool SomeCommands::checkCommand(string linee, Room* &currentRoom, Item* &current
 						currentRoom = hiRoom[i];
 
 					}
-				
+					if (verbz == "Examine")
+					{
+						hiRoom[i]->examine();
+						
+
+					}
 
 					return true;
 				}
@@ -141,7 +148,22 @@ bool SomeCommands::checkCommand(string linee, Room* &currentRoom, Item* &current
 					{
 						hiFurniture[i]->smash();
 					}
-					
+					if (verbz == "Open")
+					{
+						hiFurniture[i]->open();
+					}
+					if (verbz == "Close")
+					{
+						hiFurniture[i]->close();
+					}	
+					if (verbz == "Search")
+					{
+						hiFurniture[i]->search();
+					}
+					if (verbz == "Examine")
+					{
+						hiFurniture[i]->examine();
+					}
 				
 				}
 
@@ -178,11 +200,9 @@ bool SomeCommands::checkCommand(string linee, Room* &currentRoom, Item* &current
 					{
 					//	hiItem[i]->use();
 						currentItem->use();
-						if (verbz == "Unlock" && nounz == "Door" currentItem == )
-						{
-							hiFurniture[i]->unlock();
-						}
+						currentItem = nullptr;
 						
+			
 					}
 			
 
@@ -325,4 +345,7 @@ void SomeCommands::listCommands(Room* currentRoom) {
 
 
 }
+
+
+
 

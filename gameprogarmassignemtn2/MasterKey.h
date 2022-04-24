@@ -1,11 +1,12 @@
 #pragma once
 #include "Item.h"
+#include "Player.h"
 class MasterKey :
     public Item
 {
 
 private:
-    
+ 
 
 public:
 
@@ -34,6 +35,8 @@ public:
 
 
 
+
+    void take();
 
     void use();
 

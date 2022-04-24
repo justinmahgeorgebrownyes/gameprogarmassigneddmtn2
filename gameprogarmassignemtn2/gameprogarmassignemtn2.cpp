@@ -23,6 +23,10 @@
 #include "Door.h"
 #include "StickyNote.h"
 #include "Player.h"
+#include "Lamp.h"
+#include "Couch.h"
+#include "FrontDesk.h"
+
 using namespace std;
 int main()
 {
@@ -38,10 +42,11 @@ int main()
     Room* currentRoom ;
     Item* currentItem = nullptr;
 
+
     Player hiP();
+    DynamicStack<Item*> hieP;
     //figure out how to use when access door 
     //door check inventory or else fail2
-
 
 
     Elevator *pElevator = new Elevator();
@@ -125,6 +130,31 @@ int main()
     //to keep doing this for the other furnitures
 
 
+    Couch* pCouch = new Couch();
+    pCouch->loadFile("Couch.furniture");
+    furnitureContainer.push_back((Furniture*)pCouch);
+    furnitureMap[pCouch->getName()] = (Furniture*)pCouch;
+    //to keep doing this for the other furnitures
+
+
+
+    Lamp* pLamp = new Lamp();
+    pLamp->loadFile("Lamp.furniture");
+    furnitureContainer.push_back((Furniture*)pLamp);
+    furnitureMap[pLamp->getName()] = (Furniture*)pLamp;
+    //to keep doing this for the other furnitures
+
+
+   
+
+    FrontDesk* pFrontDesk = new FrontDesk();
+    pFrontDesk->loadFile("FrontDesk.furniture");
+    furnitureContainer.push_back((Furniture*)pFrontDesk);
+    furnitureMap[pFrontDesk->getName()] = (Furniture*)pFrontDesk;
+    //to keep doing this for the other furnitures
+
+
+
 
 
     MasterKey* pMasterKey = new MasterKey();
@@ -169,9 +199,9 @@ int main()
         commandSystem.listCommands(roomsContainer[i]);
     }*/
 
+    dialogueSystem.start();
 
     
-
 
     currentRoom = pLobby;
     currentRoom->enter();
@@ -182,6 +212,9 @@ int main()
 
     while (playerWin == false && playerLose == false)
     {
+    
+
+
         cout << "curent room is " << currentRoom->getName() << endl;
 
 
@@ -190,8 +223,11 @@ int main()
 
         if (currentItem != nullptr)
         {
-            cout << "curent item is " << currentItem->getName() << endl;
+         
+            hieP.push(currentItem);
 
+            cout << "curent item is " << currentItem->getName() << endl;
+         
         }
 
 

@@ -3,13 +3,14 @@
 using namespace std;
 
 void SomeDialogue::start() {
-	string name;
+	
+	string nameee;
 
 	cout << "hello what is your name?" << endl;
 
-	cin >> name;
+	cin >> nameee;
 
-	cout << "hello " << name << endl;
+	cout << "hello " << nameee << endl;
 
 	cout << "you are in a hotel looking for a key to unlock a door. then you win the game" << endl;
 
@@ -19,6 +20,10 @@ void SomeDialogue::start() {
 
 
 }
+
+//void SomeDialogue::printName() {
+//	cout << nameee;
+//}
 
 
 void SomeDialogue::enterLobby() {

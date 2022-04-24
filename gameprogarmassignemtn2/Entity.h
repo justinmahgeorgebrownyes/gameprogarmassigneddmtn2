@@ -26,6 +26,7 @@ public:
 	virtual void push() ;
 	virtual void take() ;
 	virtual void use() ;
+	virtual void search() ;
 
 
 	virtual void unlock() ;

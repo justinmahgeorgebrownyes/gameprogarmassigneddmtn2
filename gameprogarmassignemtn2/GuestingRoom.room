@@ -1,6 +1,6 @@
 GuestingRoom
 a room for guests
-Enter,Exit
-HallWay,Closet
-Door,Desk,Bed,Drawer,Chair,Tv,Safe
+Enter,Exit,Examine
+HallWay,Closet,GuestingRoom
+Door,Desk,Bed,Drawer,Chair,Tv,Safe,Bathrobes
 MasterKey

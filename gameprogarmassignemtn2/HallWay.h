@@ -14,6 +14,8 @@ public:
     //    : Room(name, description, detailed_description, rooms, entities, content_description)
     //{
 
+    void examine();
+
     //}
 };
 

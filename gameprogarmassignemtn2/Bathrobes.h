@@ -3,5 +3,6 @@
 class Bathrobes :
     public Furniture
 {
+    void search();
 };
 

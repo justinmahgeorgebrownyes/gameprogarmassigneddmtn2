@@ -1,9 +1,8 @@
 #pragma once
 #include "Furniture.h"
-class Dresser: 
+class FrontDesk :
     public Furniture
 {
-    void smash();
-    void search();
+    void examine();
 };
 
